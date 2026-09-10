@@ -94,6 +94,22 @@ validation:
 
 nav:
   - 홈: index.md
+  - 개발자 문서:
+      - dev/index.md
+      - 구조와 데이터 흐름: dev/architecture.md
+      - 데이터와 접근 권한: dev/data.md
+      - 설치와 배포: dev/deploy.md
+      - 운영과 인수인계: dev/handover.md
+      - 설계 원칙과 개발 규칙: dev/conventions.md
+      - 검사 프로그램 5종: dev/modules.md
+      - 결과 JSON 스키마: dev/result-schema.md
+      - 스냅샷 규약: dev/snapshots.md
+      - 사후 재검증과 현금 재검증: dev/recheck.md
+      - 대시보드 생성기: dev/dashboard.md
+      - 설정 레퍼런스 (metrics.yaml): dev/config-reference.md
+      - 폴더 구조: dev/repo-layout.md
+      - 검사 항목 추가하기: dev/extending.md
+      - 문서 자가 검증: dev/self-check.md
   - 사용자 매뉴얼:
       - manual/index.md
       - 1. 개요 — 무엇을 하는 장치인가: manual/overview.md
@@ -105,17 +121,4 @@ nav:
       - 7. 손으로 실행하는 방법: manual/run-manually.md
       - 8. 설정 변경 방법: manual/settings.md
       - 9. 용어 사전: manual/glossary.md
-  - 개발자 문서:
-      - dev/index.md
-      - 구조와 데이터 흐름: dev/architecture.md
-      - 설계 원칙과 개발 규칙: dev/conventions.md
-      - 검사 프로그램 5종: dev/modules.md
-      - 결과 JSON 스키마: dev/result-schema.md
-      - 스냅샷 규약: dev/snapshots.md
-      - 사후 재검증과 현금 재검증: dev/recheck.md
-      - 대시보드 생성기: dev/dashboard.md
-      - 설정 레퍼런스 (metrics.yaml): dev/config-reference.md
-      - 폴더 구조: dev/repo-layout.md
-      - 검사 항목 추가하기: dev/extending.md
-      - 문서 자가 검증: dev/self-check.md
   - 변경 이력: changelog.md

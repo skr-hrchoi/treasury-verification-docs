@@ -3,6 +3,9 @@
 포털 화면에 찍히는 숫자가 원천 자료(사내 자금일보 시스템 SamsApi)와 정말로 같은지를,
 사람 대신 **매일 아침 자동으로 대조해 보고 알려주는 감시 장치**입니다.
 
+이 사이트는 **만든 사람이 없어도 유지보수·인수인계가 되도록** 이 프로그램의
+구조 · 데이터 · 배포 · 운영 방법을 적어 둔 개발 문서이며, 쓰는 법을 담은 사용자 매뉴얼도 함께 있습니다.
+
 !!! info "이 문서에 싣지 않는 것"
     공개 문서이므로 **실제 보유 금액 · 사내 서버 주소 · 접속 키**는 싣지 않습니다.
     본문의 금액과 화면 캡처는 모두 **지어낸 예시 값**이고, 사내 주소는 「사내 문서 참조」로 대신합니다.
@@ -32,37 +35,37 @@
 
 <div class="grid cards" markdown>
 
--   :material-book-open-variant: **처음 보시나요**
+-   :material-sitemap: **이 프로그램을 넘겨받으셨나요**
 
     ---
 
-    이 장치가 무엇을 지켜보고, 왜 사람 눈으로는 어려운지부터 읽으십시오.
+    무엇을 왜 이렇게 만들었는지, 원천 → 저장 → 화면 세 층을 어떻게 나눠 보는지.
 
-    [:octicons-arrow-right-24: 1. 개요](manual/overview.md)
+    [:octicons-arrow-right-24: 구조와 데이터 흐름](dev/architecture.md)
 
--   :material-calendar-check: **결과가 궁금하신가요**
-
-    ---
-
-    달력형 대시보드를 읽는 법. 3단계면 그날의 상태를 다 확인할 수 있습니다.
-
-    [:octicons-arrow-right-24: 5. 결과 확인 방법](manual/results.md)
-
--   :material-alert-circle: **빨간 표시를 보셨나요**
+-   :material-server-network: **다른 PC로 옮기시나요**
 
     ---
 
-    실패·검증불가가 떴을 때의 대응 절차와 점검표입니다.
+    필요한 것, 설치 절차, 예약작업 등록, 멈추고 되돌리는 법.
 
-    [:octicons-arrow-right-24: 6. 이상이 생겼을 때](manual/troubleshoot.md)
+    [:octicons-arrow-right-24: 설치와 배포](dev/deploy.md)
 
--   :material-code-braces: **고치거나 늘리시려면**
+-   :material-clipboard-check: **매일 무엇을 봐야 하나요**
 
     ---
 
-    모듈 구성, 결과 스키마, 검사 항목을 추가하는 방법.
+    하루 30초 점검, 해마다 할 일, 미리 알아 둘 함정 7가지.
 
-    [:octicons-arrow-right-24: 개발자 문서](dev/index.md)
+    [:octicons-arrow-right-24: 운영과 인수인계](dev/handover.md)
+
+-   :material-book-open-variant: **쓰는 법이 궁금하신가요**
+
+    ---
+
+    대시보드 읽는 법과 이상이 생겼을 때의 대응 절차.
+
+    [:octicons-arrow-right-24: 사용자 매뉴얼](manual/index.md)
 
 </div>
 
