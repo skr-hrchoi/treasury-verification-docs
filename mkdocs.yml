@@ -1,0 +1,121 @@
+site_name: 자금관리포털 데이터 검증 시스템
+site_description: 포털 화면의 숫자가 원천 자료와 맞는지 매일 자동으로 대조하는 감시 장치 — 운영 매뉴얼과 개발자 문서
+site_author: 자금팀
+# 공개 문서. 실제 금액·사내 주소는 싣지 않는다 (tools/check_public_safe.py 가 검사).
+site_url: https://sinokorofficial.github.io/treasury-verification-docs/
+repo_url: https://github.com/SinokorOfficial/treasury-verification-docs
+repo_name: treasury-verification-docs
+edit_uri: edit/main/docs/
+use_directory_urls: true
+
+theme:
+  name: material
+  language: ko
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 어두운 화면으로
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 밝은 화면으로
+  features:
+    - navigation.tabs          # 상단 탭: 사용자 매뉴얼 / 개발자 문서
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - content.action.edit
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tooltips
+    - toc.follow
+  icon:
+    repo: material/file-document-outline
+
+copyright: 자금팀 · 장금상선
+
+extra:
+  generator: false            # 푸터의 'Made with Material' 문구 숨김
+  status:
+    new: 최근 추가
+
+extra_css:
+  - assets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:          # :material-xxx: 아이콘 (홈 카드에서 사용)
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
+plugins:
+  - search
+
+# 내부 링크·앵커가 깨지면 빌드에서 잡는다 (mkdocs build --strict).
+validation:
+  links:
+    absolute_links: warn
+    unrecognized_links: warn
+    anchors: warn
+
+nav:
+  - 홈: index.md
+  - 사용자 매뉴얼:
+      - manual/index.md
+      - 1. 개요 — 무엇을 하는 장치인가: manual/overview.md
+      - 2. 동작 원리: manual/how-it-works.md
+      - 3. 무엇을 검증하는가: manual/checks.md
+      - 4. 자동 실행 일정: manual/schedule.md
+      - 5. 결과 확인 방법: manual/results.md
+      - 6. 이상이 생겼을 때: manual/troubleshoot.md
+      - 7. 손으로 실행하는 방법: manual/run-manually.md
+      - 8. 설정 변경 방법: manual/settings.md
+      - 9. 용어 사전: manual/glossary.md
+  - 개발자 문서:
+      - dev/index.md
+      - 구조와 데이터 흐름: dev/architecture.md
+      - 설계 원칙과 개발 규칙: dev/conventions.md
+      - 검사 프로그램 5종: dev/modules.md
+      - 결과 JSON 스키마: dev/result-schema.md
+      - 스냅샷 규약: dev/snapshots.md
+      - 사후 재검증과 현금 재검증: dev/recheck.md
+      - 대시보드 생성기: dev/dashboard.md
+      - 설정 레퍼런스 (metrics.yaml): dev/config-reference.md
+      - 폴더 구조: dev/repo-layout.md
+      - 검사 항목 추가하기: dev/extending.md
+      - 문서 자가 검증: dev/self-check.md
+  - 변경 이력: changelog.md

@@ -1,0 +1,51 @@
+name: 문서 발행 (GitHub Pages)
+
+# main 에 push 되면 문서를 빌드해 GitHub Pages 로 올린다.
+# 최초 1회만 저장소 Settings → Pages → Source 를 "GitHub Actions" 로 지정하면 된다.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # 수동 실행 버튼
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:                # 연달아 push 해도 마지막 것만 발행
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 의존성 설치
+        run: pip install -r requirements.txt
+
+      - name: 공개 안전성 검사 (실제 금액·사내 주소가 섞였으면 여기서 막는다)
+        run: python tools/check_public_safe.py
+
+      - name: 사이트 빌드 (링크·앵커 검증 포함)
+        run: python -m mkdocs build --strict
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
