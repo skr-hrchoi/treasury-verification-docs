@@ -3,7 +3,7 @@
 포털 화면의 숫자가 원천 자료와 맞는지 매일 자동으로 대조하는 감시 장치의
 **운영 매뉴얼 + 개발자 문서**입니다. MkDocs Material 로 만들고 GitHub Pages 로 발행합니다.
 
-📖 **문서 보기**: https://sinokorofficial.github.io/treasury-verification-docs/
+📖 **문서 보기**: https://skr-hrchoi.github.io/treasury-verification-docs/
 
 ## 공개 기준
 
