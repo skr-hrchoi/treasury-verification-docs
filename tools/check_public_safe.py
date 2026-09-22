@@ -22,6 +22,14 @@ import os
 import re
 import sys
 
+# 콘솔 출력 안전장치 — 이 PC 콘솔은 cp949 라서 '—' 같은 글자를 print 하면 UnicodeEncodeError 로 죽는다.
+#   (GitHub Actions 는 UTF-8 이라 괜찮지만, 올리기 전에 손으로 돌려볼 때 막힌다)
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError, OSError):
+        pass
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)                    # docs-site
 ROOT = os.path.dirname(SITE)                    # 검증시스템

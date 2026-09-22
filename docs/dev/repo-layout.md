@@ -33,10 +33,18 @@
 │   ├─ cash_recheck.py          현금 값 변경 시 현금만 재검증
 │   ├─ merge_results.py         부분 결과 합치기
 │   ├─ build_dashboard.py       대시보드 HTML 생성
+│   ├─ build_share_copy.py      팀원 공유용 사본 파일 생성 (원본 변경 감지 포함)
+│   ├─ publish_share_copy.sh    공유용 사본 발행 (배경 세션)
+│   ├─ share_session_cleanup.py 발행에 쓴 배경 세션 정리
+│   ├─ share_alert.py           사본 발행 실패 알림 (고정 문구)
 │   ├─ notify.py                결과 알림 (알림 채널 미설정 상태)
 │   ├─ backfill.py              과거 리포트 재생성 도구
 │   ├─ backfill_bond_bycur.py   과거 리포트를 통화별 채권 기준으로 재생성
 │   └─ security\ pipeline\ functional\   ← 아직 껍데기(README만). 실행 목록에서도 주석 처리
+│
+├─ share\                    ← 공유용 사본 틀
+│   ├─ template.html            사본 틀 (데이터 자리만 비어 있음)
+│   └─ fingerprint.txt          원본 화면코드 지문 (달라지면 발행 중단)
 │
 ├─ reports\                  ← 결과 (일자별 JSON · latest.json · dashboard.html) — git 제외
 ├─ snapshots\                ← 판정 근거 원자료 (시점별 폴더) — git 제외
