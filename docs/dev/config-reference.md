@@ -37,6 +37,12 @@ source_verification:
   stock_summary_tol_abs: 1
   stock_price_tol_rel: 0.025
   stock_price_xcheck: true
+  stock_broker_check: true
+  stock_broker_companies: [sinokor]
+  stock_broker_tol_abs: 0
+  stock_broker_snapshots: "<포털 데이터 폴더>/stock-snapshots.json"
+  stock_broker_inbox: "<포털 데이터 폴더>/stock-mail-inbox"
+  stock_broker_state: "<포털 데이터 폴더>/stock-mail-outlook.state.json"
   companies:
     - { key: sinokor, code: SNKO, name: "장금" }
     - { key: heung,   code: HALK, name: "흥아" }
@@ -53,6 +59,10 @@ source_verification:
 | `stock_summary_tol_abs` | `stock_verify` | 요약↔종목합 |
 | `stock_price_tol_rel` | `stock_verify` | 현재가 교차검증 (0.025 = 2.5%) |
 | `stock_price_xcheck` | `stock_verify` | `false` 면 S3 생략 |
+| `stock_broker_check` | `stock_verify` | `false` 면 S4(신한 메일 종가 대조) 생략 |
+| `stock_broker_companies` | `stock_verify` | 신한 수시잔고 메일이 오는 회사 키 |
+| `stock_broker_tol_abs` | `stock_verify` | 신한 기준가 대조 허용 (0 = 원 단위 완전 일치) |
+| `stock_broker_snapshots` · `_inbox` · `_state` | `stock_verify` | 메일 해석 결과 · 날짜별 첨부 원본 · 메일 수거 마지막 실행 — 메일이 없을 때 사유를 가린다 |
 | `companies[]` | 전부 | `key`(내부 키) · `code`(SamsApi 회사코드) · `name`(표시명) |
 
 ## `metrics[]` — 내부 정합성 지표
