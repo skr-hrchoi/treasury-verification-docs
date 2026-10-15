@@ -43,6 +43,7 @@ source_verification:
   stock_broker_snapshots: "<포털 데이터 폴더>/stock-snapshots.json"
   stock_broker_inbox: "<포털 데이터 폴더>/stock-mail-inbox"
   stock_broker_state: "<포털 데이터 폴더>/stock-mail-outlook.state.json"
+  stock_broker_ledger: "<포털 데이터 폴더>/stock-ledger.json"
   companies:
     - { key: sinokor, code: SNKO, name: "장금" }
     - { key: heung,   code: HALK, name: "흥아" }
@@ -63,6 +64,7 @@ source_verification:
 | `stock_broker_companies` | `stock_verify` | 신한 수시잔고 메일이 오는 회사 키 |
 | `stock_broker_tol_abs` | `stock_verify` | 신한 기준가 대조 허용 (0 = 원 단위 완전 일치) |
 | `stock_broker_snapshots` · `_inbox` · `_state` | `stock_verify` | 메일 해석 결과 · 날짜별 첨부 원본 · 메일 수거 마지막 실행 — 메일이 없을 때 사유를 가린다 |
+| `stock_broker_ledger` | `stock_verify` | 거래원장(결제일 포함) — S5 평가금액 대조에서 미결제 수량을 계산한다 |
 | `companies[]` | 전부 | `key`(내부 키) · `code`(SamsApi 회사코드) · `name`(표시명) |
 
 ## `metrics[]` — 내부 정합성 지표
